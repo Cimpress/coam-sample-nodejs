@@ -54,9 +54,14 @@ function getAuth0AccessToken(callback) {
     if (err) throw err;
 
     var accessToken = body.access_token;
+    if (!accessToken) {
+      console.log(body);
+      throw new Error(body.error);
+    }
     console.log("Access Token: ", accessToken);
 
     var decoded = jwt.decode(accessToken);
+    if (!decoded || !decoded.exp) throw new Error("Unable to decode access token");
     console.log("Decoded Token (for debug):", decoded);
 
     var expiresIn = decoded.exp - Math.floor(new Date() / 1000);
