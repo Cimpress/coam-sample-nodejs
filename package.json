@@ -1,5 +1,5 @@
 {
-  "name": "iam-sample-nodejs",
+  "name": "coam-sample-nodejs",
   "version": "1.0.0",
   "description": "Example usage for calling IAM from Node.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://cbaldauf@mcpstash.cimpress.net/scm/ce/iam-sample-nodejs.git"
+    "url": "git@cimpress.githost.io:puma/api-management/coam-sample-nodejs.git"
   },
   "author": "",
   "license": "ISC",

@@ -3,21 +3,21 @@ var request = require('request');
 var jwt = require('jsonwebtoken');
 
 getAuth0AccessToken(function(accessToken) {
-  getIamPermissions("adfs|cbaldauf@cimpress.com", "merchants", "vistaprint", accessToken, function(permissions) {
+  getIamPermissions("adfs|jdaviscooke@cimpress.com", "merchants", "vistaprint", accessToken, function(permissions) {
     console.log("===== RESPONSE =====");
     console.log(permissions);
   });
 });
 
-function getIamPermissions(sub, resourceType, resourceIdentifier, accessToken, callback) {
+function getIamPermissions(principal, resourceType, resourceIdentifier, accessToken, callback) {
 
-  console.log("Retrieving IAM permissions for " + sub + " on " + resourceType + " " + resourceIdentifier);
+  console.log("Retrieving COAM permissions for " + principal + " on " + resourceType + " " + resourceIdentifier);
   console.log();
 
   var options = {
-    url: "https://api.cimpress.io/auth/iam/v0/user-permissions/" + sub + "/" + resourceType + "/" + resourceIdentifier,
+    url: "https://api.cimpress.io/auth/access-management/v1/principals/" + principal + "/permissions/" + resourceType + "/" + resourceIdentifier,
     // Alternative: get permissions for all merchants. This will be less performant if the sub has permissions for a large number of resources
-    // url: "https://api.cimpress.io/auth/iam/v0/user-permissions/" + sub + "/" + resourceType,
+    // url: "https://api.cimpress.io/auth/access-management/v1/principals/" + principal + "/permissions" + resourceType,
     method: "GET",
     headers: {
       "Authorization": "Bearer " + accessToken
@@ -49,7 +49,7 @@ function getAuth0AccessToken(callback) {
     }
   };
 
-  console.log("Retrieving IAM access token for client ID " + process.env.CLIENT_ID);
+  console.log("Retrieving access token for client ID " + process.env.CLIENT_ID);
   request(options, function(err, resp, body) {
     if (err) throw err;
 
