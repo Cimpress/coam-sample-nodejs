@@ -4,7 +4,7 @@ This repository contains sample code for calling Cimpress Access Management (COA
 
 You'll need:
 
-* Client ID / Secret (You can create one at https://developer.cimprss.io/clients/create if you need one)
+* Client ID / Secret (You can create one at https://developer.cimpress.io/clients/create if you need one)
 
 ## 2. Running the sample
 
