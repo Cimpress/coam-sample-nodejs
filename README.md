@@ -36,3 +36,6 @@ If you get back a message that looks like the following, you should reach out to
 { error: 'access_denied',
   error_description: 'Client is not authorized to access "https://api.cimpress.io". You might probably want to create a "client-grant" associated to this API. See: https://auth0.com/docs/api/v2#!/Client_Grants/post_client_grants' }
 ```
+
+## 4. Other Nodejs COAM packages you might want to check
+* https://github.com/Cimpress/coam-client
